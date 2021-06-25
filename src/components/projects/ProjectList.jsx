@@ -1,36 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import ProjectSummary from './ProjectSummary'
 
-export default function ProjectList() {
+export default function ProjectList({ projects }) {
   return (
     <div className="project-list section">
-       <div className="card z-depth-0 project-summary">
-         <div className="card-content grey-text text-darken-3">
-           <span className="card-title">Project Title</span>
-           <p>posted by xxx</p>
-           <p className="grey-text">sept 2 </p>
-         </div>
-       </div>
-       <div className="card z-depth-0 project-summary">
-         <div className="card-content grey-text text-darken-3">
-           <span className="card-title">Project Title</span>
-           <p>posted by xxx</p>
-           <p className="grey-text">sept 2 </p>
-         </div>
-       </div>
-       <div className="card z-depth-0 project-summary">
-         <div className="card-content grey-text text-darken-3">
-           <span className="card-title">Project Title</span>
-           <p>posted by xxx</p>
-           <p className="grey-text">sept 2 </p>
-         </div>
-       </div>
-       <div className="card z-depth-0 project-summary">
-         <div className="card-content grey-text text-darken-3">
-           <span className="card-title">Project Title</span>
-           <p>posted by xxx</p>
-           <p className="grey-text">sept 2 </p>
-         </div>
-       </div>
+      {
+        projects && projects.map(project => {
+          return (
+            <Link to={'/project/' + project.id} >
+              <ProjectSummary key={project.id} project={project} />
+            </Link>
+          )
+        })
+      }
     </div>
   )
 }
