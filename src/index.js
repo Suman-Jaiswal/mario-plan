@@ -20,25 +20,32 @@ const store = createStore(rootReducer,
   )
 );
 
+const profileSpecificProps = {
+  userProfile: 'users',
+  useFirestoreForProfile: true,
+  updateProfileOnLogin: false,
+};
+
 const rrfProps = {
   firebase,
-  config: fbConfig,
+  config: fbConfig, profileSpecificProps,
   dispatch: store.dispatch,
   createFirestoreInstance
 };
 
-ReactDOM.render(
-  <React.StrictMode>
+firebase.auth().onAuthStateChanged(() => 
+  
+  ReactDOM.render(
+    <React.StrictMode>
     <Provider store={store} >
-      <ReactReduxFirebaseProvider {...rrfProps} >
+      <ReactReduxFirebaseProvider {...rrfProps}  >
         <App />
       </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
-);
+  )
+  
+  );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

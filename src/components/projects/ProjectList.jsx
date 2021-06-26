@@ -8,8 +8,8 @@ export default function ProjectList({ projects }) {
       {
         projects && projects.map(project => {
           return (
-            <Link to={'/project/' + project.id} >
-              <ProjectSummary key={project.id} project={project} />
+            <Link key={project.id} to={'/project/' + project.id} >
+              <ProjectSummary  project={project} />
             </Link>
           )
         })
