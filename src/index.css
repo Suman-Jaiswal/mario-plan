@@ -20,3 +20,6 @@ form{
   margin-top: 50px;
   border-radius: 10px;
 }
+li{
+  cursor: pointer;
+}

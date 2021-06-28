@@ -19,19 +19,16 @@ const store = createStore(rootReducer,
     // reactReduxFirebase(firebase, fbConfig)
   )
 );
-
-const profileSpecificProps = {
+const rrfConfig = {
   userProfile: 'users',
-  useFirestoreForProfile: true,
-  updateProfileOnLogin: false,
-};
-
+  useFirestoreForProfile: true
+}
 const rrfProps = {
   firebase,
-  config: fbConfig, profileSpecificProps,
+  config: rrfConfig, fbConfig,
   dispatch: store.dispatch,
-  createFirestoreInstance
-};
+  createFirestoreInstance,
+}
 
 firebase.auth().onAuthStateChanged(() => 
   

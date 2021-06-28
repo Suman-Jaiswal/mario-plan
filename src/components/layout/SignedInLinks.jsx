@@ -5,10 +5,10 @@ import { signOut } from '../../store/actions/authAction'
 
 function SignedInNavLinks(props) {
   return (
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <ul id="nav-mobile" className="right hide-on-med-and-down">
       <li><NavLink to="/new">New Project</NavLink></li>
-      <li onClick={props.signOut}>Log Out</li>
-      <li><NavLink to="/" className='btn btn-floating pink lighten-1' >NN</NavLink></li>
+      <li> <NavLink to='#' onClick={props.signOut}> Log Out </NavLink></li>
+      <li><NavLink to="/" className='btn btn-floating pink lighten-1' >{props.profile.initials}</NavLink></li>
     </ul>
   )
 }
